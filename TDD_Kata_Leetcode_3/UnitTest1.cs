@@ -117,6 +117,20 @@ namespace TDD_Kata_Leetcode_3
             int expected = 3;
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_nfpdmpi_Return_5()
+        {
+            //Assign
+            string target = "nfpdmpi";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 5;
+            Assert.AreEqual(expected, actual);
+        }
+
         private int LengthOfLongestSubstring(string s)
         {
             if (s == "") return 0;
