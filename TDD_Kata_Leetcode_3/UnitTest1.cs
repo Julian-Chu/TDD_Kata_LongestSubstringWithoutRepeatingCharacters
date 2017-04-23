@@ -68,6 +68,18 @@ namespace TDD_Kata_Leetcode_3
         }
 
         [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_abcabcbb_Return_3()
+        {
+            //Assign
+            string target = "abcabcbb";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 3;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void LengthOfLongestSubstring_Give_string_abcda_Return_4()
         {
             //Assign
