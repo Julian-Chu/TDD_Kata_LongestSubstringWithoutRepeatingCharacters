@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace TDD_Kata_Leetcode_3
 {
@@ -47,7 +48,19 @@ namespace TDD_Kata_Leetcode_3
 
         private int LengthOfLongestSubstring(string target)
         {
-            return target.Length;
+            char[] targetCharArray = target.ToCharArray();
+            HashSet<char> substring = new HashSet<char>();
+            int maxLength = 0;
+            for (int i = 0; i < targetCharArray.Length; i++)
+            {
+                if (!substring.Add(targetCharArray[i]))
+                {
+                    maxLength = (maxLength >= substring.Count) ? maxLength : substring.Count;
+                }
+            }
+            maxLength = (maxLength >= substring.Count) ? maxLength : substring.Count;
+
+            return maxLength;
         }
     }
 }
