@@ -67,17 +67,6 @@ namespace TDD_Kata_Leetcode_3
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void LengthOfLongestSubstring_Give_string_abcabcbb_Return_3()
-        {
-            //Assign
-            string target = "abcabcbb";
-            //Act
-            int actual = LengthOfLongestSubstring(target);
-            //Assert
-            int expected = 3;
-            Assert.AreEqual(expected, actual);
-        }
 
         [TestMethod]
         public void LengthOfLongestSubstring_Give_string_abcda_Return_4()
@@ -103,6 +92,17 @@ namespace TDD_Kata_Leetcode_3
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_abcabcbb_Return_3()
+        {
+            //Assign
+            string target = "abcabcbb";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 3;
+            Assert.AreEqual(expected, actual);
+        }
         private int LengthOfLongestSubstring(string s)
         {
             if (s == "") return 0;
@@ -114,12 +114,11 @@ namespace TDD_Kata_Leetcode_3
 
             for (int i = 1; i < targetCharArray.Length; i++)
             {
-                if(substring.ContainsKey(targetCharArray[i]))
+                if (substring.ContainsKey(targetCharArray[i]))
                 {
-                    maxLength = i - substringHead;
+                    maxLength = maxLength > i - substringHead ? maxLength : i - substringHead;
                     substringHead = substring[targetCharArray[i]] + 1;
-                    substring[targetCharArray[i]] = i; 
-                    
+                    substring[targetCharArray[i]] = i;
                 }
                 else
                 {
@@ -128,7 +127,6 @@ namespace TDD_Kata_Leetcode_3
             }
 
             return maxLength;
-
         }
     }
 }
