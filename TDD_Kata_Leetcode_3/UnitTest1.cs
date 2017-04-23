@@ -16,6 +16,7 @@ namespace TDD_Kata_Leetcode_3
             int actual = LengthOfLongestSubstring(target);
             //Assert
             int expected = 0;
+            Assert.AreEqual(expected, actual);
         }
 
         private int LengthOfLongestSubstring(string target)
