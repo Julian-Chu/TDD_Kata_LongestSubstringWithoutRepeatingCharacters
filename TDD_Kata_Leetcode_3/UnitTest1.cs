@@ -67,6 +67,30 @@ namespace TDD_Kata_Leetcode_3
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_abcda_Return_4()
+        {
+            //Assign
+            string target = "abcda";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 4;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_pwwkew_Return_3()
+        {
+            //Assign
+            string target = "pwwkew";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 3;
+            Assert.AreEqual(expected, actual);
+        }
+
         private int LengthOfLongestSubstring(string target)
         {
             char[] targetCharArray = target.ToCharArray();
