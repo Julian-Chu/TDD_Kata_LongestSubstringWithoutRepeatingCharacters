@@ -91,21 +91,32 @@ namespace TDD_Kata_Leetcode_3
             Assert.AreEqual(expected, actual);
         }
 
-        private int LengthOfLongestSubstring(string target)
+        private int LengthOfLongestSubstring(string s)
         {
-            char[] targetCharArray = target.ToCharArray();
-            HashSet<char> substring = new HashSet<char>();
-            int maxLength = 0;
-            for (int i = 0; i < targetCharArray.Length; i++)
+            if (s == "") return 0;
+            char[] targetCharArray = s.ToCharArray();
+            int substringHead = 0;
+            int maxLength = targetCharArray.Length == 1 ? 1 : 0;
+            Dictionary<char, int> substring = new Dictionary<char, int>();
+            substring.Add(targetCharArray[0], 0);
+
+            for (int i = 1; i < targetCharArray.Length; i++)
             {
-                if (!substring.Add(targetCharArray[i]))
+                if(substring.ContainsKey(targetCharArray[i]))
                 {
-                    maxLength = (maxLength >= substring.Count) ? maxLength : substring.Count;
+                    maxLength = i - substringHead;
+                    substringHead = substring[targetCharArray[i]] + 1;
+                    substring[targetCharArray[i]] = i; 
+                    
+                }
+                else
+                {
+                    substring.Add(targetCharArray[i], i);
                 }
             }
-            maxLength = (maxLength >= substring.Count) ? maxLength : substring.Count;
 
             return maxLength;
+
         }
     }
 }
