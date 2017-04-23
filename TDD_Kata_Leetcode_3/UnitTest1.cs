@@ -21,7 +21,7 @@ namespace TDD_Kata_Leetcode_3
 
         private int LengthOfLongestSubstring(string target)
         {
-            throw new NotImplementedException();
+            return target.Length;
         }
     }
 }
