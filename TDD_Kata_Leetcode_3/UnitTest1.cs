@@ -44,6 +44,20 @@ namespace TDD_Kata_Leetcode_3
         }
 
         [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_ab_Return_2()
+        {
+            //Assign
+            string target = "ab";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 2;
+            Assert.AreEqual(expected, actual);
+        }
+
+
+
+        [TestMethod]
         public void LengthOfLongestSubstring_Give_string_aba_Return_2()
         {
             //Assign
@@ -123,6 +137,7 @@ namespace TDD_Kata_Leetcode_3
                 else
                 {
                     substring.Add(targetCharArray[i], i);
+                    maxLength = i - substringHead + 1;
                 }
             }
 
