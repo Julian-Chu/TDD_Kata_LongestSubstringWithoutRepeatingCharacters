@@ -151,7 +151,7 @@ namespace TDD_Kata_Leetcode_3
                 else
                 {
                     substring.Add(targetCharArray[i], i);
-                    maxLength = i - substringHead + 1;
+                    maxLength = maxLength > i - substringHead + 1 ? maxLength : i - substringHead + 1;
                 }
             }
 
