@@ -32,6 +32,19 @@ namespace TDD_Kata_Leetcode_3
 
         }
 
+        [TestMethod]
+        public void LengthOfLongestSubstring_Give_string_aa_Return_1()
+        {
+            //Assign 
+            string target = "aa";
+            //Act
+            int actual = LengthOfLongestSubstring(target);
+            //Assert
+            int expected = 1;
+            Assert.AreEqual(expected, actual);
+
+        }
+
         private int LengthOfLongestSubstring(string target)
         {
             return target.Length;
