@@ -157,7 +157,11 @@ namespace TDD_Kata_Leetcode_3
             {
                 if (substring.ContainsKey(targetCharArray[i]))
                 {
-                    maxLength = maxLength > i - substringHead ? maxLength : i - substringHead;
+                    maxLength = maxLength >= substring.Count ? maxLength : substring.Count;
+                    for (int j = substringHead; j < substring[targetCharArray[i]]; j++)
+                    {
+                        if (substring.ContainsKey(targetCharArray[j])) substring.Remove(targetCharArray[j]);
+                    }
                     substringHead = substring[targetCharArray[i]] + 1;
                     substring[targetCharArray[i]] = i;
                 }
