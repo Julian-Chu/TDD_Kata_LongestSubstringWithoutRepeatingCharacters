@@ -134,7 +134,7 @@ namespace TDD_Kata_Leetcode_3
         [TestMethod]
         public void LengthOfLongestSubstring_Give_string_tmmzuxt_Return_5()
         {
-            
+
             //Assign
             string target = "tmmzuxt";
             //Act
@@ -147,32 +147,29 @@ namespace TDD_Kata_Leetcode_3
         private int LengthOfLongestSubstring(string s)
         {
             if (s == "") return 0;
-            char[] targetCharArray = s.ToCharArray();
             int substringHead = 0;
-            int maxLength = targetCharArray.Length == 1 ? 1 : 0;
+            int maxLength = 0;
             Dictionary<char, int> substring = new Dictionary<char, int>();
-            substring.Add(targetCharArray[0], 0);
 
-            for (int i = 1; i < targetCharArray.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (substring.ContainsKey(targetCharArray[i]))
+                if (substring.ContainsKey(s[i]))
                 {
-                    maxLength = maxLength >= substring.Count ? maxLength : substring.Count;
-                    for (int j = substringHead; j < substring[targetCharArray[i]]; j++)
+                    maxLength = System.Math.Max(maxLength, substring.Count);
+                    for (int j = substringHead; j < substring[s[i]]; j++)
                     {
-                        if (substring.ContainsKey(targetCharArray[j])) substring.Remove(targetCharArray[j]);
+                        if (substring.ContainsKey(s[j])) substring.Remove(s[j]);
                     }
-                    substringHead = substring[targetCharArray[i]] + 1;
-                    substring[targetCharArray[i]] = i;
+                    substringHead = substring[s[i]] + 1;
+                    substring[s[i]] = i;
                 }
                 else
                 {
-                    substring.Add(targetCharArray[i], i);
-                    maxLength = maxLength > i - substringHead + 1 ? maxLength : i - substringHead + 1;
+                    substring.Add(s[i], i);
                 }
             }
 
-            return maxLength;
+            return System.Math.Max(substring.Count, maxLength);
         }
     }
 }
